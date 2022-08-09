@@ -47,11 +47,7 @@ const App = () => {
             <Stack.Screen
               name="RoomsDetail"
               component={RoomsDetail}
-              options={{
-                title: 'RoomsDetail',
-                headerTitleAlign: 'center',
-                headerTintColor: colors.brightorange,
-              }}
+              options={({route}) => ({title: route.params.name})}
             />
           </>
         )}

@@ -32,22 +32,18 @@ const Rooms = ({navigation}) => {
   };
 
   const sendContent = content => {
-    const userMail = auth().currentUser.email;
-
     const contentObject = {
-      text: content,
-      username: userMail.split('@')[0],
-      date: new Date().toISOString(),
+      roomname: content,
     };
     database().ref('rooms/').push(contentObject);
   };
 
-  const handleRoomsDetail = () => {
-    navigation.navigate('RoomsDetail');
+  const handleRoomsDetail = item => {
+    navigation.navigate('RoomsDetail', {item});
   };
 
   const renderRoomList = ({item}) => (
-    <RoomsCard rooms={item} onPress={handleRoomsDetail} />
+    <RoomsCard rooms={item} onPress={() => handleRoomsDetail(item)} />
   );
 
   return (

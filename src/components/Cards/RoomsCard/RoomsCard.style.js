@@ -20,12 +20,4 @@ export default StyleSheet.create({
     textAlign: 'center',
     alignItems: 'center',
   },
-  info_container: {
-    alignItems: 'center',
-  },
-
-  room_creater: {
-    color: colors.darkorange,
-  },
-  room_created_date: {},
 });

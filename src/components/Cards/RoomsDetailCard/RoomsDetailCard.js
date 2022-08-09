@@ -1,10 +1,20 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-
-const RoomsDetailCard = () => {
+import styles from './RoomsDetailCard.style';
+import {formatDistance, parseISO} from 'date-fns';
+const RoomsDetailCard = ({user}) => {
+  const formattedDate = formatDistance(parseISO(user.date), new Date(), {
+    addSuffix: true,
+  });
   return (
-    <View>
-      <Text>RoomsDetailCard</Text>
+    <View style={styles.container}>
+      <View style={styles.info_container}>
+        <Text>{user.username}</Text>
+        <Text>{formattedDate}</Text>
+      </View>
+      <View style={styles.message_container}>
+        <Text style={styles.message}>{user.message}</Text>
+      </View>
     </View>
   );
 };
