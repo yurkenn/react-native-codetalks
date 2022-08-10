@@ -33,7 +33,7 @@ https://user-images.githubusercontent.com/69719126/183795426-c91659a8-eb02-4c9c-
 - You can create account and login
 - You can create room or join rooms
 - You can chat with other room members
-- There is logout button in rooms
+
 
 ## API
 `API Linki: https://www.themuse.com/developers/api/v2`
