@@ -4,7 +4,7 @@ import styles from './ModalContentInput.style';
 import Button from '../../Button';
 import Modal from 'react-native-modal';
 
-const ModalContentInput = ({visible, onClose, onSend}) => {
+const ModalContentInput = ({visible, onClose, onSend, placeholder}) => {
   const [text, setText] = useState('');
 
   return (
@@ -18,7 +18,7 @@ const ModalContentInput = ({visible, onClose, onSend}) => {
       <View style={styles.container}>
         <View style={styles.input_container}>
           <TextInput
-            placeholder="Oluşturmak İstediğin Odanın Adını Gir.."
+            placeholder={placeholder}
             onChangeText={setText}
             multiline
           />

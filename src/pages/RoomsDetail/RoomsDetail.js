@@ -1,4 +1,4 @@
-import {View, Text, FlatList} from 'react-native';
+import {View, FlatList, Text} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import FloatingButton from '../../components/FloatingButton';
 import styles from './RoomsDetail.style';
@@ -22,7 +22,7 @@ const RoomsDetail = ({route}) => {
         const parsedData = parseContentData(newContentData || {});
         setMessageList(parsedData);
       });
-  }, []);
+  }, [item.id, item.roomname]);
 
   const handleToggleInput = () => {
     setInputModalVisible(!inputModalVisible);
@@ -45,17 +45,20 @@ const RoomsDetail = ({route}) => {
       .ref(`rooms/${item.id}/${item.roomname.split('#')[0]}/`)
       .push(contentData);
   };
-
+  console.log(item.roomname);
+  // eslint-disable-next-line no-shadow
   const renderMessages = ({item}) => <RoomsDetailCard user={item} />;
 
   return (
     <View style={styles.container}>
+      <Text style={styles.room_name}>{item.roomname} odası kuruldu!</Text>
       <FlatList data={messageList} renderItem={renderMessages} />
       <FloatingButton icon="add" onPress={handleToggleInput} />
       <ModalContentInput
         visible={inputModalVisible}
         onClose={handleToggleInput}
         onSend={handleSendMessage}
+        placeholder="Mesaj gir.."
       />
     </View>
   );

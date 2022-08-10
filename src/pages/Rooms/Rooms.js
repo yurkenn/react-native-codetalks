@@ -5,9 +5,9 @@ import FloatingButton from '../../components/FloatingButton';
 import styles from './Rooms.style';
 import ModalContentInput from '../../components/modal/ModalContentInput';
 import database from '@react-native-firebase/database';
-import auth from '@react-native-firebase/auth';
 import parseContentData from '../../utils/parseContentData';
 import RoomsCard from '../../components/Cards/RoomsCard';
+import {showMessage} from 'react-native-flash-message';
 const Rooms = ({navigation}) => {
   const [inputModalVisible, setInputModalVisible] = useState(false);
   const [roomList, setRoomList] = useState([]);
@@ -29,6 +29,10 @@ const Rooms = ({navigation}) => {
   const handleSendContent = content => {
     handleInputToggle();
     sendContent(content);
+    showMessage({
+      message: 'Oda Oluşturuldu',
+      type: 'success',
+    });
   };
 
   const sendContent = content => {
@@ -54,6 +58,7 @@ const Rooms = ({navigation}) => {
         visible={inputModalVisible}
         onClose={handleInputToggle}
         onSend={handleSendContent}
+        placeholder="Oluşturmak istediğiniz odanın adını girin.."
       />
     </View>
   );

@@ -30,7 +30,7 @@ const Login = ({navigation}) => {
     } catch (error) {
       showMessage({
         message: authErrorMessageparser(error.code),
-        type: 'info',
+        type: 'danger',
       });
     }
   };

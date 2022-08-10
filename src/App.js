@@ -8,7 +8,7 @@ import auth from '@react-native-firebase/auth';
 import colors from './styles/colors';
 import Rooms from './pages/Rooms/Rooms';
 import RoomsDetail from './pages/RoomsDetail';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -32,7 +32,11 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         {!userSession ? (
-          <Stack.Screen name="AuthStack" component={AuthStack} />
+          <Stack.Screen
+            name="AuthStack"
+            component={AuthStack}
+            options={{headerShown: false}}
+          />
         ) : (
           <>
             <Stack.Screen
@@ -47,7 +51,19 @@ const App = () => {
             <Stack.Screen
               name="RoomsDetail"
               component={RoomsDetail}
-              options={({route}) => ({title: route.params.name})}
+              options={({route}) => ({
+                title: route.params.item.roomname,
+                headerTitleAlign: 'center',
+                headerTintColor: colors.brightorange,
+                headerRight: () => (
+                  <Icon
+                    name="logout"
+                    size={30}
+                    color={colors.darkorange}
+                    onPress={() => auth().signOut()}
+                  />
+                ),
+              })}
             />
           </>
         )}
