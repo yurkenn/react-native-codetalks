@@ -16,18 +16,19 @@ https://user-images.githubusercontent.com/69719126/183795426-c91659a8-eb02-4c9c-
 - React Native
 
 ## Tools
-- Custom Hooks
+- Formik
+- Date-fns
+- React-native-modal
+- React-native-flash-message
 - React Navigation
-- Redux
+- Firebase
 - Vector Icons
 
 ## Features 
-- Listing returned jobs with API.
-- You can change the page with arrow icons.
-- You can click the job and see the details of job .
-- There is two buton under the job details.
-- You can add the jobs you like to your favourites.
-- You can list your favourites jobs with drawer
+- You can create account and login
+- You can create room or join rooms
+- You can chat with other room members
+- There is logout button in rooms
 
 ## API
 `API Linki: https://www.themuse.com/developers/api/v2`
