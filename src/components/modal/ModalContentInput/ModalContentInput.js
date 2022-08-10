@@ -23,7 +23,7 @@ const ModalContentInput = ({visible, onClose, onSend, placeholder}) => {
             multiline
           />
         </View>
-        <Button text="Yarat" onPress={() => onSend(text)} />
+        <Button text="Gönder" onPress={() => onSend(text)} />
       </View>
     </Modal>
   );
